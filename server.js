@@ -4,11 +4,11 @@ const hbs = require('express-handlebars');
 
 const app = express();
 
-// app.engine('hbs', hbs());
 app.engine(
   'hbs',
   hbs({ extname: 'hbs', layoutsDir: 'views/layouts', defaultLayout: 'main' })
 );
+app.engine('hbs', hbs({ extname: 'hbs', layoutsDir: 'views/layouts' }));
 app.set('view engine', '.hbs');
 
 app.use(express.static(path.join(__dirname, '/public')));
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-  res.render('about');
+  res.render('about.hbs', { layout: 'dark' });
 });
 
 app.get('/contact', (req, res) => {
