@@ -2,13 +2,20 @@
 
 {{#if isSent}}
 <div class="isSent">
-The message has been send! File {{filename}} has been saved.
+The message has been send! 
+File {{filename}} has been saved.
 </div>
 {{/if}}
 
 {{#if isError}}
 <div class="isError">
 You can't leave fields empty
+</div>
+{{/if}}
+
+{{#if filename}}
+<div>
+  <img src='/uploads/{{filename}}'>
 </div>
 {{/if}}
 
