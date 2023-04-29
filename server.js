@@ -39,10 +39,10 @@ app.get('/hello/:name', (req, res) => {
 });
 
 app.post('/contact/send-message', (req, res) => {
-  const { author, sender, title, message } = req.body;
+  const { author, sender, title, message, image } = req.body;
 
-  if (author && sender && title && message) {
-    res.render('contact', { isSent: true });
+  if (author && sender && title && message && image) {
+    res.render('contact', { isSent: true, filename: req.file.originalname });
   } else {
     res.render('contact', { isError: true });
   }
